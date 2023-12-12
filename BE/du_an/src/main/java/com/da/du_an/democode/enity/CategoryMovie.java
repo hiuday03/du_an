@@ -7,19 +7,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "play_list")
+@Table(name = "category_movie")
 @Getter
 @Setter
-
-public class PlayList extends PrimaryEntity {
-
-    private String playlistName;
-
-    private int favoriteOrder;
+public class CategoryMovie extends PrimaryEntity {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "detail_movie_id")
+    private DetailMovie detailMovies;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 }

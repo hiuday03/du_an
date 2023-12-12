@@ -9,18 +9,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "play_list_movie")
+@Table(name = "view_history")
 @Getter
 @Setter
 
-public class PlayListMovie extends PrimaryEntity {
+public class ViewHistory extends PrimaryEntity {
 
     @ManyToOne
     @JoinColumn(name = "detail_movie_id")
     private DetailMovie detailMovie;
 
     @ManyToOne
-    @JoinColumn(name = "play_list_id")
-    private PlayList playList;
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private Long date;
 
 }

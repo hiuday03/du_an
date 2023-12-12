@@ -10,9 +10,10 @@ import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "video")
+@Table(name = "movie")
 @Getter
 @Setter
+
 public class Movie extends PrimaryEntity {
 
     @Column(length = EntityProperties.LENGTH_NAME)
@@ -20,9 +21,15 @@ public class Movie extends PrimaryEntity {
     private String name;
 
     @Nationalized
-    private Long broadcastTime;
+    private String anotherName;
+
+    private Integer broadcastTime;
+
+    private Integer EndTime;
 
     @Nationalized
-    private Long EndTime;
+    private String author;
+
+    private String image;
 
 }

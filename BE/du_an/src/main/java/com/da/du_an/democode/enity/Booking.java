@@ -1,9 +1,11 @@
 package com.da.du_an.democode.enity;
 
 import com.da.du_an.democode.enity.base.PrimaryEntity;
-import com.da.du_an.democode.infrastructure.contain.EntityProperties;
 import com.da.du_an.democode.infrastructure.contain.StatusBooking;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
@@ -20,7 +22,9 @@ public class Booking extends PrimaryEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    private StatusBooking status;
+    @ManyToOne
+    @JoinColumn(name = "detail_movie_id")
+    private DetailMovie detailMovie;
 
     private BigDecimal totalPrice;
 
@@ -29,16 +33,8 @@ public class Booking extends PrimaryEntity {
     private Long endDate;
 
     @Nationalized
-    private String name;
-
-    @Column(length = EntityProperties.LENGTH_EMAIL)
-    @Nationalized
-    private String email;
-
-    @Column(length = EntityProperties.LENGTH_PHONE)
-    @Nationalized
-    private String phoneNumber;
-
-    @Nationalized
     private String note;
+
+    private StatusBooking status;
+
 }

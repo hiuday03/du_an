@@ -19,7 +19,7 @@ import java.util.List;
 
 public class DetailMovie extends PrimaryEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
@@ -27,16 +27,17 @@ public class DetailMovie extends PrimaryEntity {
 
     private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country;
+    private String country;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private Integer countPractice;
 
+    private String timePlay;
 
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "detailMovies", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<CategoryMovie> categoryMovies;
+
+    @OneToMany(mappedBy = "detailMovie", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Video> videos;
 

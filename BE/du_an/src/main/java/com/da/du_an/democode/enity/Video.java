@@ -18,9 +18,9 @@ import org.hibernate.annotations.Nationalized;
 public class Video extends PrimaryEntity {
 
     @ManyToOne
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "detail_movie_id")
     @JsonBackReference
-    private Movie movie;
+    private DetailMovie detailMovie;
 
     @Nationalized
     private String videoUrl;

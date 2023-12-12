@@ -29,4 +29,8 @@ public class Comment extends PrimaryEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "detail_movie_id")
+    private DetailMovie detailMovie;
+
 }
