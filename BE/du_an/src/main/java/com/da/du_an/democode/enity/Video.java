@@ -25,4 +25,6 @@ public class Video extends PrimaryEntity {
     @Nationalized
     private String videoUrl;
 
+    private Integer episode;
+
 }
