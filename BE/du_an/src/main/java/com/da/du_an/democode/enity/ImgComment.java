@@ -11,7 +11,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "comment")
+@Table(name = "img_comment")
 @Getter
 @Setter
 
